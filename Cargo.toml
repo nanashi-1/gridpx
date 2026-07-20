@@ -1,0 +1,7 @@
+[package]
+name = "grid_handler"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+thiserror = "2.0.18"
