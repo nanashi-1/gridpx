@@ -1,5 +1,5 @@
 [package]
-name = "grid_handler"
+name = "gridpx"
 version = "0.0.1-alpha"
 edition = "2021"
 

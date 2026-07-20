@@ -27,7 +27,7 @@ impl<const W: usize, const H: usize, T: Clone> Grid<W, H, T> {
     ///
     /// # Examples
     /// ```
-    /// use grid_handler::grid::Grid;
+    /// use gridpx::grid::Grid;
     ///
     /// let grid = Grid::<3, 2, i32>::new(7);
     /// assert_eq!(grid.get_value_at(0, 0), Ok(&7));
@@ -51,7 +51,7 @@ impl<const W: usize, const H: usize, T: Clone> Grid<W, H, T> {
     ///
     /// # Examples
     /// ```
-    /// use grid_handler::grid::Grid;
+    /// use gridpx::grid::Grid;
     /// let grid = Grid::<2, 2, &str>::new("empty");
     ///
     /// // Successful lookup
@@ -86,7 +86,7 @@ impl<const W: usize, const H: usize, T: Clone> Grid<W, H, T> {
     ///
     /// # Examples
     /// ```
-    /// use grid_handler::grid::Grid;
+    /// use gridpx::grid::Grid;
     /// let mut grid = Grid::<3, 3, i32>::new(0);
     ///
     /// grid.set_value_at(1, 2, 42).unwrap();
@@ -112,7 +112,7 @@ impl<const W: usize, const H: usize, T: Clone> Grid<W, H, T> {
     ///
     /// # Examples
     /// ```
-    /// use grid_handler::grid::Grid;
+    /// use gridpx::grid::Grid;
     /// let mut grid = Grid::<3, 3, i32>::new(0);
     ///
     /// let mut chunks = grid.get_rows();
@@ -130,7 +130,7 @@ impl<const W: usize, const H: usize, T: Clone> Grid<W, H, T> {
     ///
     /// # Examples
     /// ```
-    /// use grid_handler::grid::Grid;
+    /// use gridpx::grid::Grid;
     /// let grid = Grid::<3, 3, i32>::new(0);
     ///
     /// let array = grid.as_slice();
@@ -148,7 +148,7 @@ impl<const W: usize, const H: usize, T: Clone> Grid<W, H, T> {
     ///
     /// # Examples
     /// ```
-    /// use grid_handler::grid::Grid;
+    /// use gridpx::grid::Grid;
     /// let mut grid = Grid::<3, 3, i32>::new(0);
     ///
     /// grid.fill(1);

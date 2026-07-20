@@ -5,7 +5,7 @@
 //! ## Quick Start
 //!
 //! ```rust
-//! use grid_handler::grid::Grid;
+//! use gridpx::grid::Grid;
 //!
 //! // Create a 3x3 grid initialized with zeroes
 //! let mut grid = Grid::<3, 3, i32>::new(0);
@@ -24,3 +24,6 @@
 
 pub mod error;
 pub mod grid;
+
+pub use error::GridError;
+pub use grid::Grid;
