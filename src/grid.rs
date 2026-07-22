@@ -179,6 +179,20 @@ impl<const W: usize, const H: usize, T: Clone> IndexMut<(usize, usize)> for Grid
     }
 }
 
+impl<const W: usize, const H: usize, T: Clone> Index<usize> for Grid<W, H, T> {
+    type Output = T;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        &self.0[index]
+    }
+}
+
+impl<const W: usize, const H: usize, T: Clone> IndexMut<usize> for Grid<W, H, T> {
+    fn index_mut(&mut self, index: usize) -> &mut Self::Output {
+        &mut self.0[index]
+    }
+}
+
 impl<const W: usize, const H: usize, T: Clone> AsRef<[T]> for Grid<W, H, T> {
     fn as_ref(&self) -> &[T] {
         self.as_slice()
