@@ -12,4 +12,4 @@ homepage = "https://github.com/nanashi-1/gridpx"
 thiserror = "2.0.18"
 
 [workspace]
-members = ["examples/tic-tac-toe"]
+members = ["examples/conways-game-of-life","examples/tic-tac-toe"]
