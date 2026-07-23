@@ -34,7 +34,7 @@ async fn main() {
     // Initialize a new grid of dimensions `WIDTH` x `HEIGHT` filled with dead cells (`Tile::Space`).
     // gridpx::Grid manages the contiguous data on the heap to avoid stack overflows.
     let mut grid: Grid<WIDTH, HEIGHT, _> = Grid::new(Tile::Space);
-    
+
     // Spawn a Glider pattern in the top-left corner.
     // Gliders travel diagonally across the grid.
     grid[(1, 0)] = Tile::Life;
@@ -67,7 +67,7 @@ async fn main() {
 
             // Clone the grid state to read from the previous step while modifying the current grid.
             let grid_copy = grid.clone();
-            
+
             // Loop through each cell in the grid to apply Conway's rules.
             // `get_mut_rows` returns mutable chunks representing each row.
             for (y, row) in grid.get_mut_rows().enumerate() {
@@ -121,7 +121,7 @@ fn count_neighbors(grid: &Grid<WIDTH, HEIGHT, Tile>, x: usize, y: usize) -> usiz
 
 /// Draws individual grid cells using macroquad shapes.
 fn draw_grid_contents(grid: &Grid<WIDTH, HEIGHT, Tile>) {
-    let life_color = Color::from_hex(0xEF8354);  // Warm orange for live cells
+    let life_color = Color::from_hex(0xEF8354); // Warm orange for live cells
     let space_color = Color::from_hex(0x1C2541); // Dark navy for dead cells
 
     for (y, row) in grid.get_rows().enumerate() {
@@ -134,7 +134,9 @@ fn draw_grid_contents(grid: &Grid<WIDTH, HEIGHT, Tile>) {
 
             match content {
                 Tile::Life => draw_rectangle(screen_x, screen_y, GRID_SIZE, GRID_SIZE, life_color),
-                Tile::Space => draw_rectangle(screen_x, screen_y, GRID_SIZE, GRID_SIZE, space_color),
+                Tile::Space => {
+                    draw_rectangle(screen_x, screen_y, GRID_SIZE, GRID_SIZE, space_color)
+                }
             }
         }
     }
