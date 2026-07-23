@@ -1,6 +1,6 @@
 [package]
 name = "gridpx"
-version = "0.0.1-alpha"
+version = "0.1.0"
 edition = "2021"
 description = "A lightweight, stack-allocated, fixed-size 2D grid structure for Rust, built with const generics for zero-heap allocation overhead."
 license = "MIT OR Apache-2.0"
