@@ -2,6 +2,9 @@
 name = "tic-tac-toe"
 version = "0.1.0"
 edition = "2024"
+description = "A command-line Tic-Tac-Toe game illustrating the usage of the gridpx crate."
+license = "MIT OR Apache-2.0"
+publish = false
 
 [dependencies]
 gridpx = { path = "../.." }
