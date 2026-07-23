@@ -160,6 +160,31 @@ impl<const W: usize, const H: usize, T: Clone> Grid<W, H, T> {
     pub fn fill(&mut self, value: T) {
         self.0.fill(value);
     }
+
+    /// Overwrites the grid's contents with the elements of the given slice.
+    ///
+    /// The grid's existing elements are updated by cloning from the input slice,
+    /// reusing the existing heap allocation to avoid new memory allocations.
+    ///
+    /// # Arguments
+    /// * `array` - A slice of elements to copy into the grid.
+    ///
+    /// # Panics
+    /// Panics if the length of the slice is not equal to `W * H` (the grid size).
+    ///
+    /// # Examples
+    /// ```
+    /// use gridpx::grid::Grid;
+    /// let mut grid = Grid::<2, 2, i32>::new(0);
+    ///
+    /// grid.set_array(&[1, 2, 3, 4]);
+    ///
+    /// assert_eq!(grid.as_slice(), &[1, 2, 3, 4]);
+    /// ```
+    pub fn set_array(&mut self, array: &[T]) {
+        assert_eq!(array.len(), W * H, "array length must match grid size");
+        self.0.clone_from_slice(array);
+    }
 }
 
 impl<const W: usize, const H: usize, T: Clone> Index<(usize, usize)> for Grid<W, H, T> {
@@ -232,6 +257,13 @@ impl<const W: usize, const H: usize, T: Clone + fmt::Display> fmt::Display for G
             writeln!(f)?;
         }
         Ok(())
+    }
+}
+
+impl<const W: usize, const H: usize, T: Clone> From<&[T]> for Grid<W, H, T> {
+    fn from(value: &[T]) -> Self {
+        assert_eq!(value.len(), W * H, "array length must match grid size");
+        Self(value.to_vec().into_boxed_slice())
     }
 }
 
