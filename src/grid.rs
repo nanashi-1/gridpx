@@ -2,7 +2,7 @@ use crate::error::GridError;
 use core::fmt;
 use std::{
     ops::{Index, IndexMut},
-    slice::Chunks,
+    slice::{Chunks, ChunksMut},
 };
 
 /// A fixed-size, heap-allocated 2D grid.
@@ -124,6 +124,24 @@ impl<const W: usize, const H: usize, T: Clone> Grid<W, H, T> {
     /// ```
     pub fn get_rows<'a>(&'a self) -> Chunks<'a, T> {
         self.0.chunks(W)
+    }
+
+    /// Returns mutable chunks with size of `W`.
+    ///
+    /// # Examples
+    /// ```
+    /// use gridpx::grid::Grid;
+    /// let mut grid = Grid::<3, 3, i32>::new(0);
+    ///
+    /// let mut chunks = grid.get_rows();
+    ///
+    /// assert_eq!(chunks.next(), Some(&[0, 0, 0][..]));
+    /// assert_eq!(chunks.next(), Some(&[0, 0, 0][..]));
+    /// assert_eq!(chunks.next(), Some(&[0, 0, 0][..]));
+    /// assert_eq!(chunks.next(), None);
+    /// ```
+    pub fn get_mut_rows<'a>(&'a mut self) -> ChunksMut<'a, T> {
+        self.0.chunks_mut(W)
     }
 
     /// Returns a slice from the internal array.
