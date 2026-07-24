@@ -4,11 +4,10 @@
 [![Documentation](https://docs.rs/gridpx/badge.svg)](https://docs.rs/gridpx)
 [![License](https://img.shields.io/crates/l/gridpx.svg)](#license)
 
-A lightweight, stack-allocated, fixed-size 2D grid structure for Rust, built with const generics for zero-heap allocation overhead.
+A lightweight, heap-allocated, fixed-size 2D grid structure for Rust.
 
 ## Features
 
-- 🚀 **Zero-Heap Allocation:** Uses Rust const generics (`Grid<W, H, T>`) to keep data stack-allocated for speed.
 - 🎯 **Idiomatic Indexing:** Supports standard 2D tuple indexing like `grid[(x, y)]`.
 - 🛡️ **Safe & Fallible Access:** Offers checked accessors (`get_value_at`) alongside panic-free error handling via `GridError`.
 - 🔄 **Iteration & Slices:** Easy conversion to slices and row/column iterators.
