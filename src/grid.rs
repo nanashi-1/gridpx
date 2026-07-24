@@ -295,6 +295,12 @@ impl<const W: usize, const H: usize, T: Clone> IntoIterator for Grid<W, H, T> {
     }
 }
 
+impl<const W: usize, const H: usize, T: Default + Clone> Default for Grid<W, H, T> {
+    fn default() -> Self {
+        Self::new(T::default())
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
