@@ -285,6 +285,16 @@ impl<const W: usize, const H: usize, T: Clone> From<&[T]> for Grid<W, H, T> {
     }
 }
 
+impl<const W: usize, const H: usize, T: Clone> IntoIterator for Grid<W, H, T> {
+    type Item = T;
+
+    type IntoIter = std::vec::IntoIter<T>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_vec().into_iter()
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
