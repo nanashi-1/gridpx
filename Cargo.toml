@@ -1,9 +1,8 @@
 [package]
 name = "gridpx"
 version = "0.1.1"
-version = "0.1.0"
 edition = "2021"
-description = "A lightweight, stack-allocated, fixed-size 2D grid structure for Rust, built with const generics for zero-heap allocation overhead."
+description = "A lightweight, heap-allocated, fixed-size 2D grid structure for Rust."
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/nanashi-1/gridpx"
 documentation = "https://docs.rs/gridpx"
